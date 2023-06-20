@@ -11,6 +11,7 @@ declare namespace HmrcOdxChangeLink {
     }
     namespace propTypes {
         export const label: PropTypes.Requireable<string>;
+        export const sectionHeader: PropTypes.Requireable<string>;
         const value_1: PropTypes.Requireable<string>;
         export { value_1 as value };
         const placeholder_1: PropTypes.Requireable<string>;

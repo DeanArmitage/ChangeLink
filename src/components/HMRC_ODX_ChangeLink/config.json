@@ -11,6 +11,11 @@
   "subtype": "Text",
   "properties": [
     {
+      "name": "sectionHeader",
+      "label": "Section header",
+      "format": "TEXT"
+    },
+    {
       "name": "label",
       "label": "Label value",
       "format": "TEXT"

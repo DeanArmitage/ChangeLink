@@ -24,8 +24,27 @@ export const baseHmrcOdxChangeLink = () => {
         },
         getStateProps: () => {
           return { value: '.name' };
+        },
+        getTarget: () => {
+          return { target: 'targetContainer' };
+        },
+        getCaseInfo: () => {
+          return {
+            getKey: () => {
+              return { key: 12345 };
+            }
+          };
         }
       };
+    },
+    PCore: {
+      getContainerUtils: () => {
+        return {
+          getContainerItemName: () => {
+            return { containerItemName: 'containerItemName' };
+          }
+        };
+      }
     },
     value,
     placeholder: text('Placeholder', 'Test placeholder'),
@@ -33,6 +52,7 @@ export const baseHmrcOdxChangeLink = () => {
     readOnly: boolean('Disabled', false),
     required: boolean('Disabled', false),
     label: text('Label', 'Sample Label'),
+    sectionHeader: text('Section header', 'Section header'),
     testId: text('Test id', 'text-12344566')
   };
 

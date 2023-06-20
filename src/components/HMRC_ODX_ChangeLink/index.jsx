@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Input, Label, Link } from '@pega/cosmos-react-core';
+import { Input, Label, Link, Flex } from '@pega/cosmos-react-core';
 
 import StyledHmrcOdxChangeLinkWrapper from './styles';
 
@@ -8,8 +8,18 @@ import StyledHmrcOdxChangeLinkWrapper from './styles';
 // props passed in combination of props from property panel (config.json) and run time props from Constellation
 // any default values in config.pros should be set in defaultProps at bottom of this file
 const HmrcOdxChangeLink = props => {
-  const { getPConnect, value, placeholder, disabled, readOnly, required, label, testId, stepId } =
-    props;
+  const {
+    getPConnect,
+    value,
+    placeholder,
+    disabled,
+    readOnly,
+    required,
+    label,
+    testId,
+    stepId,
+    sectionHeader
+  } = props;
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
@@ -41,9 +51,16 @@ const HmrcOdxChangeLink = props => {
 
   return (
     <StyledHmrcOdxChangeLinkWrapper>
-      <Link href='#' onClick={handleOnClick}>
-        Change
-      </Link>
+      <Flex container={{ pad: 1, gap: 6 }}>
+        <Flex item={{ grow: 1 }}>
+          <h2>{sectionHeader}</h2>
+        </Flex>
+        <Flex item={{ grow: 0 }}>
+          <Link href='#' onClick={handleOnClick}>
+            Change
+          </Link>
+        </Flex>
+      </Flex>
     </StyledHmrcOdxChangeLinkWrapper>
   );
 };
@@ -59,6 +76,7 @@ HmrcOdxChangeLink.defaultProps = {
 
 HmrcOdxChangeLink.propTypes = {
   label: PropTypes.string,
+  sectionHeader: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   getPConnect: PropTypes.func.isRequired,
