@@ -29,7 +29,8 @@ const HmrcOdxPhoneNumber = props => {
     displayAsStatus,
     variant,
     hasSuggestions,
-    isTableFormatter
+    isTableFormatter,
+    autocomplete
   } = props;
   const { formatter } = props;
   const pConn = getPConnect();
@@ -123,6 +124,10 @@ const HmrcOdxPhoneNumber = props => {
         </StyledHmrcOdxPhoneNumberWrapper>
       </Configuration>
     );
+  }
+
+  if (autocomplete !== '') {
+    additionalProps['autoComplete'] = autocomplete;
   }
 
   return (
